@@ -9,9 +9,11 @@
         android:id="@+id/message"
         android:layout_width="match_parent"
         android:layout_height="100dp"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/exit"
+        android:maxLength="140"
         tools:layout_editor_absoluteX="30dp"
         tools:layout_editor_absoluteY="16dp"
-        android:maxLength="140"
         tools:text="Enter tweet" />
 
     <Button
@@ -19,11 +21,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginEnd="14dp"
-        android:layout_marginTop="110dp"
+        android:layout_below="@+id/message"
         android:onClick="sendTweet"
         android:text="Tweet"
+        android:padding="15dp"
+        android:background="@drawable/post_button"
         tools:layout_editor_absoluteX="243dp"
         tools:layout_editor_absoluteY="275dp" />
 
@@ -32,8 +34,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/message"
-        android:layout_marginStart="11dp"
+        android:layout_alignParentTop="true"
         android:onClick="exit"
-        android:text="Exit" />
+        android:textColor ="@android:color/holo_blue_light"
+        android:background="#FFFFFF"
+        android:padding="15dp"
+        android:text="X" />
 </RelativeLayout>

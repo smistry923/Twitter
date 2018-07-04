@@ -10,6 +10,7 @@ public @Parcel class Tweet {
     public long uid;
     public User user;
     public String createdAt;
+    public String handle;
 
     //deserialize the JSON
     public static Tweet fromJSON(JSONObject jsonObject) throws JSONException{
@@ -20,6 +21,7 @@ public @Parcel class Tweet {
         tweet.uid = jsonObject.getLong("id");
         tweet.createdAt = jsonObject.getString("created_at");
         tweet.user = User.fromJSON(jsonObject.getJSONObject("user"));
+        tweet.handle = tweet.user.screenName;
         return tweet;
     }
 }
