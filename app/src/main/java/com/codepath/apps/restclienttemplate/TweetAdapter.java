@@ -10,7 +10,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
+import com.codepath.apps.restclienttemplate.models.GlideApp;
 import com.codepath.apps.restclienttemplate.models.Tweet;
 
 import java.text.ParseException;
@@ -55,7 +56,7 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder> 
         holder.tvTimeStamp.setText(getRelativeTimeAgo(tweet.createdAt));
         holder.tvHandle.setText(tweet.handle);
 
-        Glide.with(context).load(tweet.user.profileImageUrl).into(holder.ivProfileImage);
+        GlideApp.with(context).load(tweet.user.profileImageUrl).transform(new RoundedCorners(70)).into(holder.ivProfileImage);
     }
 
     @Override
@@ -99,6 +100,18 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder> 
         }
 
         return relativeDate;
+    }
+
+    // Clean all elements of the recycler
+    public void clear() {
+        mTweets.clear();
+        notifyDataSetChanged();
+    }
+
+    // Add a list of items -- change to type used
+    public void addAll(List<Tweet> list) {
+        mTweets.addAll(list);
+        notifyDataSetChanged();
     }
 
 }

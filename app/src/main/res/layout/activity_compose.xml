@@ -11,7 +11,7 @@
         android:layout_height="100dp"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/exit"
-        android:maxLength="140"
+        android:maxLength="280"
         tools:layout_editor_absoluteX="30dp"
         tools:layout_editor_absoluteY="16dp"
         tools:text="Enter tweet" />
@@ -21,11 +21,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
-        android:layout_below="@+id/message"
-        android:onClick="sendTweet"
-        android:text="Tweet"
-        android:padding="15dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="186dp"
         android:background="@drawable/post_button"
+        android:onClick="sendTweet"
+        android:padding="15dp"
+        android:text="Tweet"
         tools:layout_editor_absoluteX="243dp"
         tools:layout_editor_absoluteY="275dp" />
 
@@ -40,4 +41,14 @@
         android:background="#FFFFFF"
         android:padding="15dp"
         android:text="X" />
+
+    <TextView
+        android:id="@+id/counter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="156dp"
+        android:text="0 out of 280 characters" />
 </RelativeLayout>
