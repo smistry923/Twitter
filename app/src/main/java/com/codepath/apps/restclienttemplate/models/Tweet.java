@@ -13,6 +13,7 @@ public @Parcel class Tweet {
     public String handle;
     public String count;
     public String retweets;
+    public String likes;
 
     //deserialize the JSON
     public static Tweet fromJSON(JSONObject jsonObject) throws JSONException{
@@ -25,7 +26,7 @@ public @Parcel class Tweet {
         tweet.user = User.fromJSON(jsonObject.getJSONObject("user"));
         tweet.handle = tweet.user.screenName;
         tweet.retweets = jsonObject.getString("retweet_count");
-        tweet.count = tweet.user.likes;
+        tweet.likes = jsonObject.getString("favorite_count");
 
         return tweet;
     }
