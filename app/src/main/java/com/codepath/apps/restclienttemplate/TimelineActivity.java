@@ -69,7 +69,6 @@ public class TimelineActivity extends AppCompatActivity {
         rvTweets.setAdapter(tweetAdapter);
         populateTimeline();
 
-
     }
 
     private void populateTimeline(){
@@ -149,11 +148,25 @@ public class TimelineActivity extends AppCompatActivity {
         // `client` here is an instance of Android Async HTTP
         // getHomeTimeline is an example endpoint.
         client.getHomeTimeline(new JsonHttpResponseHandler() {
-            public void onSuccess(JSONArray mTweets) {
+            public void onSuccess(int statusCode, Header[] headers, JSONArray response ) {
                 // Remember to CLEAR OUT old items before appending in the new ones
-                tweets.clear();
+                tweetAdapter.clear();
                 // ...the data has come back, add new items to your adapter...
-                //tweets.addAll();
+
+                for(int i = 0; i < response.length(); i++) {
+                    //convert each object to a TWeet model
+                    //add that Tweet model to our data source
+                    //notify the adapter that we've added an item
+                    try {
+                        Tweet tweet = Tweet.fromJSON(response.getJSONObject(i));
+                        tweets.add(tweet);
+                        tweetAdapter.notifyItemInserted(tweets.size() - 1);
+                    } catch (JSONException e){
+                        e.printStackTrace();
+                    }
+                }
+
+                tweetAdapter.addAll(tweets);
                 // Now we call setRefreshing(false) to signal refresh has finished
                 swipeContainer.setRefreshing(false);
             }
@@ -163,7 +176,5 @@ public class TimelineActivity extends AppCompatActivity {
             }
         });
     }
-
-
 
 }
