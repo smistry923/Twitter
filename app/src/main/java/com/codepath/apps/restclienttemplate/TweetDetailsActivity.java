@@ -5,6 +5,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
+import com.codepath.apps.restclienttemplate.models.GlideApp;
 import com.codepath.apps.restclienttemplate.models.Tweet;
 
 import org.parceler.Parcels;
@@ -39,6 +41,9 @@ public class TweetDetailsActivity extends AppCompatActivity {
         tvHandle.setText(" @" + tweet.handle);
         tvRetweets.setText(tweet.retweets);
         tvLikes.setText(tweet.likes);
+
+        GlideApp.with(this).load(tweet.user.profileImageUrl).transform(new RoundedCorners(70)).into(ivProfileImage);
+
 
     }
 }
