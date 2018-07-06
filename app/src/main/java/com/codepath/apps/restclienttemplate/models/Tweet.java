@@ -30,4 +30,5 @@ public @Parcel class Tweet {
 
         return tweet;
     }
+
 }

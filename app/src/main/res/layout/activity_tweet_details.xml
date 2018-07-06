@@ -87,5 +87,39 @@
         android:layout_alignBottom="@id/tvRetweets"
         app:srcCompat="@drawable/ic_vector_retweet" />
 
+    <EditText
+        android:id="@+id/message"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="98dp"
+        android:maxLength="280"
+        tools:layout_editor_absoluteX="30dp"
+        tools:layout_editor_absoluteY="16dp"
+        tools:text="Reply" />
+
+    <Button
+        android:id="@+id/post"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="186dp"
+        android:background="@drawable/post_button"
+        android:onClick="sendTweet"
+        android:padding="15dp"
+        android:text="Reply"
+        tools:layout_editor_absoluteX="243dp"
+        tools:layout_editor_absoluteY="275dp" />
+
+
+    <TextView
+        android:id="@+id/counter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/tvHandle"
+        android:layout_below="@+id/message"
+        android:text="0 out of 280 characters" />
+
 
 </RelativeLayout>
