@@ -31,7 +31,6 @@ public class ComposeActivity extends AppCompatActivity {
     private TextView counter;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

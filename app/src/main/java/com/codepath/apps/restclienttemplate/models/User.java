@@ -18,7 +18,6 @@ public @Parcel class User {
         user.uid = json.getLong("id");
         user.screenName = json.getString("screen_name");
         user.profileImageUrl = json.getString("profile_image_url");
-       // user.likes = json.getString("favourites_count");
 
         return user;
     }
