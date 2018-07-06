@@ -10,7 +10,6 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.codepath.apps.restclienttemplate.models.ComposeActivity;
 import com.codepath.apps.restclienttemplate.models.Tweet;
 import com.loopj.android.http.JsonHttpResponseHandler;
 
@@ -30,6 +29,7 @@ public class TimelineActivity extends AppCompatActivity {
     ArrayList<Tweet> tweets;
     RecyclerView rvTweets;
     private SwipeRefreshLayout swipeContainer;
+
 
 
     @Override
@@ -177,5 +177,12 @@ public class TimelineActivity extends AppCompatActivity {
             }
         });
     }
+
+    public void loadDetails(){
+        Intent i = new Intent(TimelineActivity.this, TweetDetailsActivity.class);
+        startActivity(i);
+
+    }
+
 
 }

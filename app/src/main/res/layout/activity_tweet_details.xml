@@ -76,7 +76,7 @@
         android:layout_below="@+id/tvBody"
         android:layout_alignBottom="@id/tvLikes"
         android:clickable="true"
-        android:onClick="retweet"
+        android:onClick="like"
         app:srcCompat="@drawable/ic_vector_heart_stroke" />
 
     <ImageView
@@ -87,7 +87,7 @@
         android:layout_toStartOf="@+id/tvRetweets"
         android:layout_below="@+id/tvBody"
         android:clickable="true"
-        android:onClick="like"
+        android:onClick="retweet"
         android:layout_alignBottom="@id/tvRetweets"
         app:srcCompat="@drawable/ic_vector_retweet" />
 

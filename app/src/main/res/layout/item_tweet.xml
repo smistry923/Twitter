@@ -95,6 +95,8 @@
         android:layout_below="@id/tvBody"
         android:layout_alignBottom="@id/imageView2"
         android:layout_alignParentBottom= "@id/imageView2"
+        android:clickable="true"
+        android:onClick="loadDetails"
         android:layout_marginHorizontal="80dp"
         app:srcCompat="@android:drawable/sym_action_chat" />
 

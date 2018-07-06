@@ -35,9 +35,7 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder> 
 
 
     //pass in Tweets array in the constructor
-    public TweetAdapter(List<Tweet> tweets){
-        mTweets = tweets;
-    }
+    public TweetAdapter(List<Tweet> tweets){ mTweets = tweets; }
 
     //and for each row inflate the layout and cache references into ViewHolder
 
@@ -103,6 +101,8 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder> 
         public TextView tvRetweets;
         public ImageView imageView;
         public ImageView imageView2;
+        public ImageView imageView4;
+
 
         public ViewHolder(View itemView){
             super(itemView);
@@ -116,7 +116,9 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder> 
             tvRetweets = (TextView) itemView.findViewById(R.id.tvRetweets);
             imageView = (ImageView) itemView.findViewById(R.id.imageView);
             imageView2 = (ImageView) itemView.findViewById(R.id.imageView2) ;
+            imageView4 = (ImageView) itemView.findViewById(R.id.imageView4);
             tvBody.setOnClickListener(this);
+            imageView4.setOnClickListener(this);
 
         }
 
@@ -135,8 +137,10 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder> 
                 // serialize the movie using parceler, use its short name as a key
                 // show the activity
                 intent.putExtra(Tweet.class.getSimpleName(), Parcels.wrap(tweet));
-
                 context.startActivity(intent);
+
+
+
             }
         }
 
@@ -170,6 +174,9 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder> 
         mTweets.addAll(list);
         notifyDataSetChanged();
     }
+
+
+
 
 
 }

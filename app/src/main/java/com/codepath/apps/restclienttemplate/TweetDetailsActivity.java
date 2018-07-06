@@ -21,7 +21,7 @@ import org.parceler.Parcels;
 
 import cz.msebera.android.httpclient.Header;
 
-public class TweetDetailsActivity extends AppCompatActivity {
+public class TweetDetailsActivity extends AppCompatActivity{
     public ImageView ivProfileImage;
     public TextView tvUsername;
     public TextView tvBody;
@@ -31,6 +31,7 @@ public class TweetDetailsActivity extends AppCompatActivity {
     public TextView tvRetweets;
     public TwitterClient client;
     public AsyncHttpResponseHandler handler;
+
 
     public EditText text;
     private TextView counter;
@@ -77,6 +78,8 @@ public class TweetDetailsActivity extends AppCompatActivity {
             }
 
         };
+
+
     }
 
     public void sendTweet(View view){
