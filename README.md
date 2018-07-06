@@ -49,12 +49,14 @@ The following **additional** features are implemented:
 * [x] Like and retweet from the details page and the timeline
 * [x] Profile Images are rounded 
 * [x] Twitter style
+* [x] Front reply button redirects to reply dialog 
+
 
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://g.recordit.co/Tg3Ypff7aL.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='http://recordit.co/UsjAn2qjO4' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 GIF created with [RecordIt](http://www.recordit.com).
 
