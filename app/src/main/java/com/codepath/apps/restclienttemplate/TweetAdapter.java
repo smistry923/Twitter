@@ -15,6 +15,8 @@ import android.widget.TextView;
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
 import com.codepath.apps.restclienttemplate.models.GlideApp;
 import com.codepath.apps.restclienttemplate.models.Tweet;
+import com.loopj.android.http.AsyncHttpResponseHandler;
+import com.loopj.android.http.JsonHttpResponseHandler;
 
 import org.parceler.Parcels;
 
@@ -27,6 +29,10 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder> 
 
     private List <Tweet> mTweets;
     public Context context;
+    Tweet tweet;
+    AsyncHttpResponseHandler handler = new JsonHttpResponseHandler();
+    TwitterClient client = TwitterApp.getRestClient(context);
+
 
     //pass in Tweets array in the constructor
     public TweetAdapter(List<Tweet> tweets){
@@ -51,7 +57,7 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder> 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         //get data according to position
-        Tweet tweet = mTweets.get(position);
+        final Tweet tweet = mTweets.get(position);
 
 
         //populate the views according to this data
@@ -61,6 +67,21 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder> 
         holder.tvHandle.setText(" @"+tweet.handle);
         holder.tvRetweets.setText(tweet.retweets);
         holder.tvLikes.setText(tweet.likes);
+
+        holder.imageView2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                client.retweet(tweet.uid, handler);
+            }
+        });
+
+        holder.imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                client.like(tweet.uid, handler);
+            }
+        });
+
 
         GlideApp.with(context).load(tweet.user.profileImageUrl).transform(new RoundedCorners(70)).into(holder.ivProfileImage);
     }
@@ -80,6 +101,8 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder> 
         public TextView tvHandle;
         public TextView tvLikes;
         public TextView tvRetweets;
+        public ImageView imageView;
+        public ImageView imageView2;
 
         public ViewHolder(View itemView){
             super(itemView);
@@ -91,7 +114,10 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder> 
             tvHandle = (TextView) itemView.findViewById(R.id.tvHandle);
             tvLikes = (TextView) itemView.findViewById(R.id.tvLikes);
             tvRetweets = (TextView) itemView.findViewById(R.id.tvRetweets);
-            itemView.setOnClickListener(this);
+            imageView = (ImageView) itemView.findViewById(R.id.imageView);
+            imageView2 = (ImageView) itemView.findViewById(R.id.imageView2) ;
+            tvBody.setOnClickListener(this);
+
         }
 
         @Override
@@ -144,5 +170,6 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder> 
         mTweets.addAll(list);
         notifyDataSetChanged();
     }
+
 
 }

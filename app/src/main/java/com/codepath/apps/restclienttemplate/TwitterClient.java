@@ -30,6 +30,9 @@ public class TwitterClient extends OAuthBaseClient {
 	// See https://developer.chrome.com/multidevice/android/intents
 	public static final String REST_CALLBACK_URL_TEMPLATE = "intent://%s#Intent;action=android.intent.action.VIEW;scheme=%s;package=%s;S.browser_fallback_url=%s;end";
 
+	public static final String RETWEET_ENDPOINT = "statuses/retweet.json";
+	public static final String LIKE_ENDPOINT = "favorites/create.json";
+
 	public TwitterClient(Context context) {
 		super(context, REST_API_INSTANCE,
 				REST_URL,
@@ -63,6 +66,22 @@ public class TwitterClient extends OAuthBaseClient {
 		// Can specify query string params directly or through RequestParams.
 		RequestParams params = new RequestParams();
 		params.put("status", message);
+		client.post(apiUrl, params, handler);
+	}
+
+	public void retweet(long id, AsyncHttpResponseHandler handler) {
+		String apiUrl = getApiUrl(RETWEET_ENDPOINT);
+		// Can specify query string params directly or through RequestParams.
+		RequestParams params = new RequestParams();
+		params.put("id", id);
+		client.post(apiUrl, params, handler);
+	}
+
+	public void like(long id, AsyncHttpResponseHandler handler) {
+		String apiUrl = getApiUrl(LIKE_ENDPOINT);
+		// Can specify query string params directly or through RequestParams.
+		RequestParams params = new RequestParams();
+		params.put("id", id);
 		client.post(apiUrl, params, handler);
 	}
 

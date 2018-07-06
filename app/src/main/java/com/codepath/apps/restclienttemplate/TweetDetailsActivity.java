@@ -97,6 +97,16 @@ public class TweetDetailsActivity extends AppCompatActivity {
         public void afterTextChanged(Editable s) {
         }
     };
+
+    public void like(View view){
+        long id = tweet.uid;
+        client.like(id,handler);
+    }
+
+    public void retweet(View view){
+        long id = tweet.uid;
+        client.retweet(id,handler);
+    }
 }
 
 
