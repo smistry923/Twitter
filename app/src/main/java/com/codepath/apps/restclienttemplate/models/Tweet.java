@@ -30,6 +30,7 @@ public @Parcel class Tweet {
         tweet.likes = jsonObject.getString("favorite_count");
 
 
+
         return tweet;
     }
 

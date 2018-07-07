@@ -12,6 +12,8 @@
         android:layout_height="50dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
+        android:clickable="true"
+        android:onClick="loadProfile"
         app:srcCompat="@android:color/black" />
 
     <TextView

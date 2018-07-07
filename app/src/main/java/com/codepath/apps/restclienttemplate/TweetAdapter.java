@@ -66,6 +66,7 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder> 
         holder.tvRetweets.setText(tweet.retweets);
         holder.tvLikes.setText(tweet.likes);
 
+
         holder.imageView2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -81,7 +82,20 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder> 
         });
 
 
+
         GlideApp.with(context).load(tweet.user.profileImageUrl).transform(new RoundedCorners(70)).into(holder.ivProfileImage);
+
+        holder.ivProfileImage.setOnClickListener(new View.OnClickListener(){
+
+
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(context, UserInfoActivity.class);
+                i.putExtra(Tweet.class.getSimpleName(), Parcels.wrap(tweet));
+                context.startActivity(i);
+            }
+        });
+
     }
 
     @Override
@@ -119,7 +133,6 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder> 
             imageView4 = (ImageView) itemView.findViewById(R.id.imageView4);
             tvBody.setOnClickListener(this);
             imageView4.setOnClickListener(this);
-
         }
 
         @Override
@@ -138,7 +151,6 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder> 
                 // show the activity
                 intent.putExtra(Tweet.class.getSimpleName(), Parcels.wrap(tweet));
                 context.startActivity(intent);
-
 
 
             }
@@ -174,6 +186,8 @@ public class TweetAdapter extends RecyclerView.Adapter<TweetAdapter.ViewHolder> 
         mTweets.addAll(list);
         notifyDataSetChanged();
     }
+
+
 
 
 
