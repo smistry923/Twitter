@@ -63,8 +63,8 @@ Here's a walkthrough of implemented user stories:
 GIF created with [RecordIt](http://www.recordit.com).
 
 ## Notes
-
-Describe any challenges encountered while building the app.
+There were several more features I would have liked to implement within the functionality, but unfortunately the twitter API 
+was not the smoothest to work with. 
 
 ## Open-source libraries used
 
