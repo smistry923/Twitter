@@ -50,13 +50,15 @@ The following **additional** features are implemented:
 * [x] Profile Images are rounded 
 * [x] Twitter style
 * [x] Front reply button redirects to reply dialog 
+* [x] ActionBar text changed to Home to mimic Twitter 
+
 
 
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://g.recordit.co/oRDYQSGsAn.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='http://g.recordit.co/7YcI7fFNNu.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 GIF created with [RecordIt](http://www.recordit.com).
 
